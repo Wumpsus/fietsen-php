@@ -1,25 +1,30 @@
 <?php
-//conect database
+// Connect database
 include "connect.php";
 
-//maak een query
+// Maak een query
 $sql = "SELECT * FROM fietsen";
-//prepare  query
+
+// Prepare query
 $stmt = $conn->prepare($sql);
-//uitvoeren
+
+// Uitvoeren
 $stmt->execute();
-//ophalen alle data
+
+// Ophalen alle data
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo "<br>";
 
-//print de data in een rij
+// Print de data in een rij
 echo "<table border=1px>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['Merk'] . "</td>";
     echo "<td>" . $row['Type'] . "</td>";
     echo "<td>" . $row['Prijs'] . "</td>";
+    // Voeg de vaste afbeelding URL toe
+    echo "<td><img src='img/markie.png' alt='Fietsfoto'></td>";
     echo "</tr>";
 }
 echo "</table>";
