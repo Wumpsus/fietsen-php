@@ -20,12 +20,13 @@ echo "<br>";
 echo "<table border=1px>";
 foreach ($result as $row) {
     echo "<tr>";
+    echo "<td>". $row['ID'] . "</td>";
     echo "<td>" . $row['Merk'] . "</td>";
     echo "<td>" . $row['Type'] . "</td>";
-    echo "<td>" . $row['Prijs'] . "</td>";
-    // Voeg de vaste afbeelding URL toe
-    echo "<td><img src='img/markie.png' alt='Fietsfoto'></td>";
-    echo "</tr>";
+    echo "<td>€" . $row['Prijs'] . "</td>";
+    echo "<td><img src='img/markie.png" . $row['Foto'] . "'></td>";
+    echo "<td><a href='edit.php?id=" . $row['ID'] . "'>" . "Wijzigen</a></td>";
+    echo "<td><a href='delete.php?id=" . $row['ID'] . "'>" . "Verwijder</a></td>";
 }
 echo "</table>";
 ?>
