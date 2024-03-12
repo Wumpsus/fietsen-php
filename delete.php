@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"]  == "GET") {
 include "connect.php";
 
 //maak een query
-$sql = "DELETE FROM fietsen WHERE ID = :ID";
+$sql = "DELETE FROM bieren WHERE brouwcode = :brouwcode";
 //prepare  query
 $query = $conn->prepare($sql);
 //uitvoeren
 $status = $query->execute(
     [
-        ':ID'=>$_GET['id']
+        ':brouwcode'=>$_GET['brouwcode']
        
     ]
     );

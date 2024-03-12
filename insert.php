@@ -9,17 +9,17 @@
 </head>
 <body>
 
-<h1>Fietsen Toevoegen</h1>
+<h1>bier toevoegen</h1>
 
 <form action="" method="post">
-    <label for="merk">Merk:</label>
-    <input type="text" id="Merk" name="Merk" required><br>
+    <label for="brouwcode">Brouwcode:</label>
+    <input type="text" id="brouwcode" name="brouwcode" required><br>
 
-    <label for="type">Type:</label>
-    <input type="text" id="Type" name="Type" required><br>
+    <label for="naam">Naam:</label>
+    <input type="text" id="naam" name="naam" required><br>
 
-    <label for="prijs">Prijs:</label>
-    <input type="number" id="Prijs" name="Prijs" required><br>
+    <label for="prijs">land:</label>
+    <input type="text" id="land" name="land" required><br>
 
     <label for="foto">Foto URL:</label>
     <input type="text" id="Foto" name="Foto"><br>
@@ -38,16 +38,16 @@ if ($_SERVER["REQUEST_METHOD"]  == "POST") {
 include "connect.php";
 
 //maak een query
-$sql = "INSERT INTO fietsen (Merk, Type, Prijs, Foto) 
-VALUES (:Merk, :Type, :Prijs, :Foto);";
+$sql = "INSERT INTO brouwer (brouwcode, naam, land) 
+VALUES (:brouwcode, :naam, :land, :Foto);";
 //prepare  query
 $query = $conn->prepare($sql);
 //uitvoeren
 $status = $query->execute(
     [
-        ':Merk'=>$_POST['Merk'],
-        ':Type'=>$_POST['Type'],
-        ':Prijs'=>$_POST['Prijs'],
+        ':brouwcode'=>$_POST['brouwcode'],
+        ':naam'=>$_POST['naam'],
+        ':land'=>$_POST['land'],
         ':Foto'=>$_POST['Foto']
     ]
 );

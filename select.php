@@ -3,7 +3,7 @@
 include "connect.php";
 
 // Maak een query
-$sql = "SELECT * FROM fietsen";
+$sql = "SELECT * FROM brouwer";
 
 // Prepare query
 $stmt = $conn->prepare($sql);
@@ -20,13 +20,11 @@ echo "<br>";
 echo "<table border=1px>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>". $row['ID'] . "</td>";
-    echo "<td>" . $row['Merk'] . "</td>";
-    echo "<td>" . $row['Type'] . "</td>";
-    echo "<td>€" . $row['Prijs'] . "</td>";
-    echo "<td><img src='img/markie.png" . $row['Foto'] . "'></td>";
-    echo "<td><a href='edit.php?id=" . $row['ID'] . "'>" . "Wijzigen</a></td>";
-    echo "<td><a href='delete.php?id=" . $row['ID'] . "'>" . "Verwijder</a></td>";
+    echo "<td>" . $row['brouwcode'] . "</td>";
+    echo "<td>" . $row['naam'] . "</td>";
+    echo "<td>" . $row['land'] . "</td>";
+    echo "<td><a href='edit.php?brouwcode=" . $row['brouwcode'] . "'>" . "Wijzigen</a></td>";
+    echo "<td><a href='delete.php?brouwcode=" . $row['brouwcode'] . "'>" . "Verwijder</a></td>";
 }
 echo "</table>";
 ?>
